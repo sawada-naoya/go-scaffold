@@ -9,9 +9,13 @@ import (
 	"github.com/sawada-naoya/go-scaffold/internal/generator/util"
 )
 
-func Generator(name string, layers []string) error {
+// Generate creates code files for the provided entity using templates for each
+// layer. The generated files will be placed under `internal/<layer>/<entity>.go`.
+// `name` should be the entity name in snake_case or any format; it will be
+// converted to PascalCase for struct names and snake_case for filenames.
+func Generate(name string, layers []string) error {
 	structName := util.ToPascalCase(name)
-	fileName := util.ToSnakeCase(name)
+	fileName := util.ToSnakeCase(name) + ".go"
 
 	for _, layer := range layers {
 		dir := filepath.Join("internal", layer)
@@ -27,7 +31,7 @@ func Generator(name string, layers []string) error {
 
 		filePath := filepath.Join(dir, fileName)
 		f, err := os.Create(filePath)
-		if err != nil  {
+		if err != nil {
 			return err
 		}
 
