@@ -17,7 +17,7 @@ func main() {
 	}
 
 	layers := []string{"handler", "usecase", "service", "repository"}
-	err := generator.Generator(*name, layers)
+	err := generator.Generate(*name, layers)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 	}
