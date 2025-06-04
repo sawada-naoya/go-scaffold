@@ -2,10 +2,11 @@ package generator
 
 import (
 	"fmt"
-	"go-scaffold/internal/generator/util"
 	"os"
 	"path/filepath"
 	"text/template"
+
+	"github.com/sawada-naoya/go-scaffold/internal/generator/util"
 )
 
 func Generator(name string, layers []string) error {

@@ -3,7 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go-scaffold/internal/generator"
+
+	"github.com/sawada-naoya/go-scaffold/internal/generator"
 )
 
 func main() {
@@ -15,7 +16,7 @@ func main() {
 		return
 	}
 
-	layers := []string("handler", "usecase", "service", "repository")
+	layers := []string{"handler", "usecase", "service", "repository"}
 	err := generator.Generator(*name, layers)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
