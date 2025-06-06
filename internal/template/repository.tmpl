@@ -1,0 +1,17 @@
+package repository
+
+type {{.StructName}} interface {
+  // Define the methods that the repository should implement
+  // For example:
+  // Create User (data *User) error
+}
+
+type {{.StructName}}Repository struct {
+  // Add any dependencies or services needed for the repository
+}
+
+func New{{.StructName}}Repository() *{{.StructName}}Repository {
+  return &{{.StructName}}Repository{
+    // Initialize any dependencies or services here
+  }
+}

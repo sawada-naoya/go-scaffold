@@ -1,0 +1,17 @@
+package usecase
+
+type {{.StructName}} interface {
+  // Define the methods that the usecase should implement
+  // For example:
+  // CreateUser(data *User) error
+}
+
+type {{.StructName}}Usecase struct {
+  // Add any dependencies or services needed for the usecase
+}
+
+func New{{.StructName}}Usecase() *{{.StructName}}Usecase {
+  return &{{.StructName}}Usecase{
+    // Initialize any dependencies or services here
+  }
+}

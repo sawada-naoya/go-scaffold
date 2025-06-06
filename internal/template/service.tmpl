@@ -1,0 +1,18 @@
+package service
+
+
+type {{.StructName}} interface {
+  // Define the methods that the service should implement
+  // For example:
+  // CreateUser(data *User) error
+}
+
+type {{.StructName}}Service struct {
+  // Add any dependencies or services needed for the service
+}
+
+func New{{.StructName}}Service() *{{.StructName}}Service {
+  return &{{.StructName}}Service{
+    // Initialize any dependencies or services here
+  }
+}
