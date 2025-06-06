@@ -23,13 +23,16 @@ func Generate(name string, layers []string) error {
 			return err
 		}
 
-		templPath := filepath.Join("internal", "template", layer+".tmpl")
-		tmpl, err := template.ParseFiles(templPath)
+		tmplPath := filepath.Join("internal", "template", layer+".tmpl")
+		tmpl, err := template.ParseFiles(tmplPath)
 		if err != nil {
 			return err
 		}
 
-		filePath := filepath.Join(dir, fileName)
+		filePath, err := util.getUniqueFilePath(dir, fileName)
+		if err != nil {
+			return err
+		}
 		f, err := os.Create(filePath)
 		if err != nil {
 			return err
