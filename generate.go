@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/sawada-naoya/go-scaffold/internal/generator"
+	"go-scaffold/internal/generator"
 )
 
 func main() {

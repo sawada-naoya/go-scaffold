@@ -2,11 +2,10 @@ package generator
 
 import (
 	"fmt"
+	"go-scaffold/internal/generator/util"
 	"os"
 	"path/filepath"
 	"text/template"
-
-	"github.com/sawada-naoya/go-scaffold/internal/generator/util"
 )
 
 // Generate creates code files for the provided entity using templates for each
@@ -23,13 +22,16 @@ func Generate(name string, layers []string) error {
 			return err
 		}
 
-		templPath := filepath.Join("internal", "template", layer+".tmpl")
-		tmpl, err := template.ParseFiles(templPath)
+		tmplPath := filepath.Join("internal", "template", layer+".tmpl")
+		tmpl, err := template.ParseFiles(tmplPath)
 		if err != nil {
 			return err
 		}
 
-		filePath := filepath.Join(dir, fileName)
+		filePath, err := util.GetUniqueFilePath(dir, fileName)
+		if err != nil {
+			return err
+		}
 		f, err := os.Create(filePath)
 		if err != nil {
 			return err
