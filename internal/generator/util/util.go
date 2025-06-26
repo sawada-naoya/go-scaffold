@@ -1,4 +1,4 @@
-package generator
+package util
 
 import (
 	"fmt"
@@ -31,7 +31,7 @@ func ToSnakeCase(s string) string {
 	return string(result)
 }
 
-func getUniqueFilePath (dir, baseName string) (string, error) {
+func GetUniqueFilePath(dir, baseName string) (string, error) {
 	filePath := filepath.Join(dir, baseName)
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		return filePath, nil

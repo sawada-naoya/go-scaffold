@@ -1,4 +1,4 @@
-module github.com/sawada-naoya/go-scaffold
+module go-scaffold
 
 go 1.23.3
 
