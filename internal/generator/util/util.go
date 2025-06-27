@@ -37,7 +37,7 @@ func GetUniqueFilePath(dir, baseName string) (string, error) {
 		return filePath, nil
 	}
 
-	ext := filepath.Ext(baseName) // ".go"
+	ext := filepath.Ext(baseName)             // ".go"
 	name := strings.TrimSuffix(baseName, ext) // "user"
 	i := 1
 
@@ -47,7 +47,7 @@ func GetUniqueFilePath(dir, baseName string) (string, error) {
 		if _, err := os.Stat(newPath); os.IsNotExist(err) {
 			return newPath, nil
 		}
-		i ++
+		i++
 		if i > 100 {
 			return "", fmt.Errorf("too many duplicate files for %s", baseName)
 		}
